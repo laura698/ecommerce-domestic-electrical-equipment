@@ -19,7 +19,7 @@
     <title>Catalog</title>
   </head>
 
-  <body x-data="{ desktopMenuOpen: false, mobileMenuOpen: false, listView: false }">
+  <body x-data="{ desktopMenuOpen: false, mobileMenuOpen: false, listView: false, filterOpen: false }">
     <main class="flex flex-col h-screen justify-between">
       <!-- Header -->
       <div>
@@ -323,7 +323,7 @@
         class="container mx-auto flex-grow max-w-[1200px] border-b py-5 lg:flex lg:flex-row lg:py-10"
       >
         <!-- sidebar  -->
-        <section class="hidden w-[300px] flex-shrink-0 px-4 lg:block">
+        <section class="w-[300px] flex-shrink-0 px-4" :class="filterOpen ? 'block' : 'hidden lg:block'">
           <div class="flex border-b pb-5">
             <div class="w-full">
               <p class="mb-3 font-medium" data-i18n="CATEGORIES">CATEGORIES</p>
@@ -368,39 +368,6 @@
                 <div><p class="text-gray-500">(11)</p></div>
               </div>
 
-              <p class="mt-4 mb-2 text-sm font-medium text-gray-400 uppercase tracking-wide" data-i18n="Refrigerators">Refrigerators</p>
-
-              <div class="flex w-full justify-between">
-                <div class="flex justify-center items-center">
-                  <input type="checkbox" id="cat-french-door" data-category="french-door" class="category-filter" />
-                  <p class="ml-4" data-i18n="French Door">French Door</p>
-                </div>
-                <div><p class="text-gray-500">(38)</p></div>
-              </div>
-
-              <div class="flex w-full justify-between">
-                <div class="flex justify-center items-center">
-                  <input type="checkbox" id="cat-side-by-side" data-category="side-by-side" class="category-filter" />
-                  <p class="ml-4" data-i18n="Side-by-Side">Side-by-Side</p>
-                </div>
-                <div><p class="text-gray-500">(27)</p></div>
-              </div>
-
-              <div class="flex w-full justify-between">
-                <div class="flex justify-center items-center">
-                  <input type="checkbox" id="cat-top-freezer" data-category="top-freezer" class="category-filter" />
-                  <p class="ml-4" data-i18n="Top-Freezer">Top-Freezer</p>
-                </div>
-                <div><p class="text-gray-500">(45)</p></div>
-              </div>
-
-              <div class="flex w-full justify-between">
-                <div class="flex justify-center items-center">
-                  <input type="checkbox" id="cat-bottom-freezer" data-category="bottom-freezer" class="category-filter" />
-                  <p class="ml-4" data-i18n="Bottom-Freezer">Bottom-Freezer</p>
-                </div>
-                <div><p class="text-gray-500">(22)</p></div>
-              </div>
             </div>
           </div>
 
@@ -420,6 +387,7 @@
               </select>
 
               <button
+                @click="filterOpen = !filterOpen"
                 class="flex items-center justify-center border px-6 py-2 md:hidden"
               ><span data-i18n="Filters">Filters</span><svg
                   xmlns="http://www.w3.org/2000/svg"

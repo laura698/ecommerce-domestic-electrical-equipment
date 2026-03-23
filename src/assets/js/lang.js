@@ -161,6 +161,9 @@ function applyLang(lang) {
     opt.classList.toggle('font-semibold', active);
     opt.classList.toggle('text-violet-900', active);
   });
+
+  // Notificar a páginas con contenido dinámico
+  if (typeof window.onLangApplied === 'function') window.onLangApplied(lang);
 }
 
 // ─── Dropdown toggle ───────────────────────────────────────────────────────────

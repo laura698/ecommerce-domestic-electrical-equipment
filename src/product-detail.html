@@ -392,6 +392,14 @@
       const backLabel = document.getElementById('back-label');
       if (backLink) { backLink.href = '#'; backLink.onclick = function(e){ e.preventDefault(); location.href = catLink; }; }
       if (backLabel) backLabel.textContent = t.backTo + displayCatName;
+
+      // ── Hook para cambio de idioma en caliente ────────────────────────────────
+      window.onLangApplied = function(newLang) {
+        const es = newLang === 'es';
+        const newCatName = (es ? catNamesES[cat] : null) || catNames[cat] || 'Catalog';
+        const newBackTo  = es ? 'Volver a ' : 'Back to ';
+        if (backLabel) backLabel.textContent = newBackTo + newCatName;
+      };
     })();
     </script>
 
