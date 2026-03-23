@@ -14,20 +14,16 @@
     <meta name="msapplication-TileColor" content="#ffc40d" />
     <meta name="theme-color" content="#ffffff" />
 
-    <title>MayBell - Online furniture store</title>
+    <title>Julio Cash Electronic Inc</title>
   </head>
 
-  <body x-data="{ desktopMenuOpen: false, mobileMenuOpen: false}">
+  <body x-data="{ desktopMenuOpen: false, mobileMenuOpen: false, activeCategory: 'washing-machines'}">
     <!-- Header -->
     <header
       class="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-5"
     >
       <a href="index.html">
-        <img
-          class="cursor-pointer sm:h-auto sm:w-auto"
-          src="./assets/images/company-logo.svg"
-          alt="company logo"
-        />
+        <span class="text-xl font-bold text-violet-900">Julio Cash <span class="text-amber-400">Electronic Inc</span></span>
       </a>
 
       <div class="md:hidden">
@@ -71,85 +67,30 @@
           placeholder="Search"
         />
 
-        <button class="ml-auto h-full bg-amber-400 px-4 hover:bg-yellow-300">
-          Search
-        </button>
+        <button class="ml-auto h-full bg-amber-400 px-4 hover:bg-yellow-300"><span data-i18n="Search">Search</span></button>
       </form>
 
-      <div class="hidden gap-3 md:!flex">
-        <a
-          href="wishlist.html"
-          class="flex cursor-pointer flex-col items-center justify-center"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="h-6 w-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-            />
-          </svg>
-
-          <p class="text-xs">Wishlist</p>
-        </a>
-
-        <a
-          href="cart.html"
-          class="flex cursor-pointer flex-col items-center justify-center"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            class="h-6 w-6"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z"
-              clip-rule="evenodd"
-            />
-          </svg>
-
-          <p class="text-xs">Cart</p>
-        </a>
-
-        <a
-          href="account-page.html"
-          class="relative flex cursor-pointer flex-col items-center justify-center"
-        >
-          <span class="absolute bottom-[33px] right-1 flex h-2 w-2">
-            <span
-              class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"
-            ></span>
-            <span
-              class="relative inline-flex h-2 w-2 rounded-full bg-red-500"
-            ></span>
-          </span>
-
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="h-6 w-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-            />
-          </svg>
-
-          <p class="text-xs">Account</p>
-        </a>
-      </div>
+      
+    
+          
+          <!-- Language Selector -->
+          <div class="relative hidden md:block ml-4 flex-shrink-0" id="lang-dropdown-container">
+            <button id="lang-toggle" class="flex items-center gap-1.5 border border-violet-900 rounded px-3 py-1.5 text-sm text-violet-900 font-medium hover:bg-violet-50 transition-colors">
+              <span id="lang-flag"></span>
+              <span id="lang-label">EN</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3.5 w-3.5 ml-0.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+            <div id="lang-menu" class="hidden absolute right-0 mt-1 bg-white border border-gray-200 rounded shadow-lg z-50 overflow-hidden">
+              <button class="lang-option flex items-center gap-2 px-4 py-2 w-full text-sm hover:bg-gray-50 transition-colors" data-lang="en">
+                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30' class='h-4 w-6 rounded-sm flex-shrink-0'><clipPath id='ca'><path d='M0 0v30h60V0z'/></clipPath><clipPath id='cb'><path d='M30 15h30v15zM0 15h30zM30 0h30zM0 0h30v15z'/></clipPath><g clip-path='url(#ca)'><path d='M0 0v30h60V0z' fill='#012169'/><path d='M0 0l60 30M60 0L0 30' stroke='#fff' stroke-width='6'/><path d='M0 0l60 30M60 0L0 30' clip-path='url(#cb)' stroke='#C8102E' stroke-width='4'/><path d='M30 0v30M0 15h60' stroke='#fff' stroke-width='10'/><path d='M30 0v30M0 15h60' stroke='#C8102E' stroke-width='6'/></g></svg><span>EN</span>
+              </button>
+              <button class="lang-option flex items-center gap-2 px-4 py-2 w-full text-sm hover:bg-gray-50 transition-colors" data-lang="es">
+                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2' class='h-4 w-6 rounded-sm flex-shrink-0'><rect width='3' height='2' fill='#c60b1e'/><rect y='.5' width='3' height='1' fill='#ffc400'/></svg><span>ES</span>
+              </button>
+            </div>
+          </div>
     </header>
     <!-- /Header -->
 
@@ -161,82 +102,7 @@
       style="display: none"
     >
       <div class="mx-auto">
-        <div class="mx-auto flex w-full justify-center gap-3 py-4">
-          <a
-            href="wishlist.html"
-            class="flex cursor-pointer flex-col items-center justify-center"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="h-6 w-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-              />
-            </svg>
-
-            <p class="text-xs">Wishlist</p>
-          </a>
-
-          <a
-            href="cart.html"
-            class="flex cursor-pointer flex-col items-center justify-center"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="h-6 w-6"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z"
-                clip-rule="evenodd"
-              />
-            </svg>
-
-            <p class="text-xs">Cart</p>
-          </a>
-
-          <a
-            href="account-page.html"
-            class="relative flex cursor-pointer flex-col items-center justify-center"
-          >
-            <span class="absolute bottom-[33px] right-1 flex h-2 w-2">
-              <span
-                class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"
-              ></span>
-              <span
-                class="relative inline-flex h-2 w-2 rounded-full bg-red-500"
-              ></span>
-            </span>
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="h-6 w-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-              />
-            </svg>
-
-            <p class="text-xs">Account</p>
-          </a>
-        </div>
-
-        <form class="my-4 mx-5 flex h-9 items-center border">
+                <form class="my-4 mx-5 flex h-9 items-center border">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -261,15 +127,13 @@
           <button
             type="submit"
             class="ml-auto h-full bg-amber-400 px-4 hover:bg-yellow-300"
-          >
-            Search
-          </button>
+          ><span data-i18n="Search">Search</span></button>
         </form>
         <ul class="text-center font-medium">
-          <li class="py-2"><a href="index.html">Home</a></li>
-          <li class="py-2"><a href="catalog.html">Catalog</a></li>
-          <li class="py-2"><a href="about-us.html">About Us</a></li>
-          <li class="py-2"><a href="contact-us.html">Contact Us</a></li>
+          <li class="py-2"><a href="index.html" data-i18n="Home" data-i18n="Home">Home</a></li>
+          <li class="py-2"><a href="catalog.html" data-i18n="Catalog" data-i18n="Catalog">Catalog</a></li>
+          <li class="py-2"><a href="about-us.html" data-i18n="About Us" data-i18n="About Us">About Us</a></li>
+          <li class="py-2"><a href="contact-us.html" data-i18n="Contact Us" data-i18n="Contact Us">Contact Us</a></li>
         </ul>
       </div>
     </section>
@@ -300,50 +164,33 @@
                 stroke-linejoin="round"
                 d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
               />
-            </svg>
-
-            All categories
-          </div>
+            </svg><span data-i18n="All categories">All categories</span></div>
         </button>
 
         <div class="mx-7 flex gap-8">
           <a
             class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
             href="index.html"
-            >Home</a
+             data-i18n="Home">Home</a
           >
           <a
             class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
             href="catalog.html"
-            >Catalog</a
+             data-i18n="Catalog">Catalog</a
           >
           <a
             class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
             href="about-us.html"
-            >About Us</a
+             data-i18n="About Us">About Us</a
           >
           <a
             class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
             href="contact-us.html"
-            >Contact Us</a
+             data-i18n="Contact Us">Contact Us</a
           >
         </div>
 
-        <div class="ml-auto flex gap-4 px-5">
-          <a
-            class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
-            href="login.html"
-            >Login</a
-          >
-
-          <span class="text-white">&#124;</span>
-
-          <a
-            class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
-            href="sign-up.html"
-            >Sign Up</a
-          >
-        </div>
+        
       </div>
     </nav>
     <!-- /Nav bar -->
@@ -359,7 +206,9 @@
         <div class="w-[300px] border-r">
           <ul class="px-5">
             <li
-              class="active:blue-900 flex items-center gap-2 bg-amber-400 py-2 px-3 active:bg-amber-400"
+              @mouseenter="activeCategory = 'washing-machines'"
+              :class="activeCategory === 'washing-machines' ? 'bg-amber-400' : 'hover:bg-neutral-100'"
+              class="active:blue-900 flex cursor-pointer items-center gap-2 py-2 px-3 active:bg-amber-400"
             >
               <img
                 width="15px"
@@ -367,7 +216,7 @@
                 src="./assets/images/bed.svg"
                 alt="Bedroom icon"
               />
-              Bedroom
+              <span data-i18n="Washing Machines">Washing Machines</span>
               <span class="ml-auto"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -387,7 +236,9 @@
             </li>
 
             <li
-              class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400"
+              @mouseenter="activeCategory = 'refrigerators'"
+              :class="activeCategory === 'refrigerators' ? 'bg-amber-400' : 'hover:bg-neutral-100'"
+              class="active:blue-900 flex cursor-pointer items-center gap-2 py-2 px-3 active:bg-amber-400"
             >
               <img
                 width="15px"
@@ -395,7 +246,7 @@
                 src="./assets/images/sleep.svg"
                 alt="bedroom icon"
               />
-              Matrass
+              <span data-i18n="Refrigerators">Refrigerators</span>
               <span class="ml-auto"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -415,7 +266,9 @@
             </li>
 
             <li
-              class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400"
+              @mouseenter="activeCategory = 'air-conditioners'"
+              :class="activeCategory === 'air-conditioners' ? 'bg-amber-400' : 'hover:bg-neutral-100'"
+              class="active:blue-900 flex cursor-pointer items-center gap-2 py-2 px-3 active:bg-amber-400"
             >
               <img
                 width="15px"
@@ -423,7 +276,7 @@
                 src="./assets/images/outdoor.svg"
                 alt="bedroom icon"
               />
-              Outdoor
+              <span data-i18n="Air Conditioners">Air Conditioners</span>
               <span class="ml-auto"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -443,7 +296,9 @@
             </li>
 
             <li
-              class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400"
+              @mouseenter="activeCategory = 'televisions'"
+              :class="activeCategory === 'televisions' ? 'bg-amber-400' : 'hover:bg-neutral-100'"
+              class="active:blue-900 flex cursor-pointer items-center gap-2 py-2 px-3 active:bg-amber-400"
             >
               <img
                 width="15px"
@@ -451,7 +306,7 @@
                 src="./assets/images/sofa.svg"
                 alt="bedroom icon"
               />
-              Sofa
+              <span data-i18n="Televisions">Televisions</span>
               <span class="ml-auto"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -471,7 +326,9 @@
             </li>
 
             <li
-              class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400"
+              @mouseenter="activeCategory = 'kitchen-appliances'"
+              :class="activeCategory === 'kitchen-appliances' ? 'bg-amber-400' : 'hover:bg-neutral-100'"
+              class="active:blue-900 flex cursor-pointer items-center gap-2 py-2 px-3 active:bg-amber-400"
             >
               <img
                 width="15px"
@@ -479,7 +336,7 @@
                 src="./assets/images/kitchen.svg"
                 alt="bedroom icon"
               />
-              Kitchen
+              <span data-i18n="Kitchen Appliances">Kitchen Appliances</span>
               <span class="ml-auto"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -499,7 +356,9 @@
             </li>
 
             <li
-              class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400"
+              @mouseenter="activeCategory = 'small-appliances'"
+              :class="activeCategory === 'small-appliances' ? 'bg-amber-400' : 'hover:bg-neutral-100'"
+              class="active:blue-900 flex cursor-pointer items-center gap-2 py-2 px-3 active:bg-amber-400"
             >
               <img
                 width="15px"
@@ -507,7 +366,7 @@
                 src="./assets/images/food.svg"
                 alt="Food icon"
               />
-              Living room
+              <span data-i18n="Small Appliances">Small Appliances</span>
               <span class="ml-auto"
                 ><svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -528,48 +387,230 @@
           </ul>
         </div>
 
-        <div class="flex w-full justify-between">
-          <div class="flex gap-6">
-            <div class="mx-5">
-              <p class="font-medium text-gray-500">BEDS</p>
-              <ul class="text-sm leading-8">
-                <li><a href="product-overview.html">Italian bed</a></li>
-                <li><a href="product-overview.html">Queen-size bed</a></li>
-                <li><a href="product-overview.html">Wooden craft bed</a></li>
-                <li><a href="product-overview.html">King-size bed</a></li>
-              </ul>
-            </div>
+        <div class="flex w-full pl-6">
 
-            <div class="mx-5">
-              <p class="font-medium text-gray-500">LAMPS</p>
-              <ul class="text-sm leading-8">
-                <li><a href="product-overview.html">Italian Purple Lamp</a></li>
-                <li><a href="product-overview.html">APEX Lamp</a></li>
-                <li><a href="product-overview.html">PIXAR lamp</a></li>
-                <li><a href="product-overview.html">Ambient Nightlamp</a></li>
-              </ul>
+          <!-- Washing Machines panel -->
+          <div x-show="activeCategory === 'washing-machines'" class="flex w-full flex-col">
+            <p class="mb-3 font-medium text-gray-500">WASHING MACHINES</p>
+            <div class="grid grid-cols-3 gap-x-8 gap-y-2 text-sm">
+              <a href="category-washing-machines.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Samsung WD Pro</span><span class="text-gray-400">$899</span>
+              </a>
+              <a href="category-washing-machines.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>LG TurboWash 360</span><span class="text-gray-400">$1,049</span>
+              </a>
+              <a href="category-washing-machines.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Whirlpool HE Washer</span><span class="text-gray-400">$749</span>
+              </a>
+              <a href="category-washing-machines.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Bosch Series 8</span><span class="text-gray-400">$1,199</span>
+              </a>
+              <a href="category-washing-machines.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Haier HW100</span><span class="text-gray-400">$649</span>
+              </a>
+              <a href="category-washing-machines.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Miele WCG660</span><span class="text-gray-400">$1,599</span>
+              </a>
+              <a href="category-washing-machines.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Electrolux EFLW427</span><span class="text-gray-400">$829</span>
+              </a>
+              <a href="category-washing-machines.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Speed Queen TC5</span><span class="text-gray-400">$979</span>
+              </a>
+              <a href="category-washing-machines.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Maytag MHW5630</span><span class="text-gray-400">$699</span>
+              </a>
             </div>
-
-            <div class="mx-5">
-              <p class="font-medium text-gray-500">BEDSIDE TABLES</p>
-              <ul class="text-sm leading-8">
-                <li><a href="product-overview.html">Purple Table</a></li>
-                <li><a href="product-overview.html">Easy Bedside</a></li>
-                <li><a href="product-overview.html">Soft Table</a></li>
-                <li><a href="product-overview.html">Craft Table</a></li>
-              </ul>
-            </div>
-
-            <div class="mx-5">
-              <p class="font-medium text-gray-500">SPECIAL</p>
-              <ul class="text-sm leading-8">
-                <li><a href="product-overview.html">Humidifier</a></li>
-                <li><a href="product-overview.html">Bed Cleaner</a></li>
-                <li><a href="product-overview.html">Vacuum Cleaner</a></li>
-                <li><a href="product-overview.html">Pillow</a></li>
-              </ul>
-            </div>
+            <a href="category-washing-machines.html" class="mt-5 inline-block self-start bg-amber-400 px-5 py-2 text-sm font-medium text-black hover:bg-yellow-300">
+              Ver catálogo completo →
+            </a>
           </div>
+
+          <!-- Refrigerators panel -->
+          <div x-show="activeCategory === 'refrigerators'" class="flex w-full flex-col">
+            <p class="mb-3 font-medium text-gray-500">REFRIGERATORS</p>
+            <div class="grid grid-cols-3 gap-x-8 gap-y-2 text-sm">
+              <a href="category-refrigerators.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Samsung French Door</span><span class="text-gray-400">$1,399</span>
+              </a>
+              <a href="category-refrigerators.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>LG InstaView</span><span class="text-gray-400">$1,799</span>
+              </a>
+              <a href="category-refrigerators.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Whirlpool 4-Door</span><span class="text-gray-400">$1,249</span>
+              </a>
+              <a href="category-refrigerators.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Bosch Side-by-Side</span><span class="text-gray-400">$1,599</span>
+              </a>
+              <a href="category-refrigerators.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>GE Profile Series</span><span class="text-gray-400">$1,499</span>
+              </a>
+              <a href="category-refrigerators.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>KitchenAid KRFF507E</span><span class="text-gray-400">$1,899</span>
+              </a>
+              <a href="category-refrigerators.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Maytag MFI2570FEZ</span><span class="text-gray-400">$1,099</span>
+              </a>
+              <a href="category-refrigerators.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Miele KF 2901 Vi</span><span class="text-gray-400">$2,299</span>
+              </a>
+              <a href="category-refrigerators.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Hisense RS694N4TFE</span><span class="text-gray-400">$949</span>
+              </a>
+            </div>
+            <a href="category-refrigerators.html" class="mt-5 inline-block self-start bg-amber-400 px-5 py-2 text-sm font-medium text-black hover:bg-yellow-300">
+              Ver catálogo completo →
+            </a>
+          </div>
+
+          <!-- Air Conditioners panel -->
+          <div x-show="activeCategory === 'air-conditioners'" class="flex w-full flex-col">
+            <p class="mb-3 font-medium text-gray-500">AIR CONDITIONERS</p>
+            <div class="grid grid-cols-3 gap-x-8 gap-y-2 text-sm">
+              <a href="category-air-conditioners.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Daikin Inverter 12k</span><span class="text-gray-400">$799</span>
+              </a>
+              <a href="category-air-conditioners.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Mitsubishi Mini Split</span><span class="text-gray-400">$1,099</span>
+              </a>
+              <a href="category-air-conditioners.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>LG Dual Cool</span><span class="text-gray-400">$649</span>
+              </a>
+              <a href="category-air-conditioners.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Carrier Xpower</span><span class="text-gray-400">$899</span>
+              </a>
+              <a href="category-air-conditioners.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Gree Sapphire 18k</span><span class="text-gray-400">$729</span>
+              </a>
+              <a href="category-air-conditioners.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Trane XR15</span><span class="text-gray-400">$1,349</span>
+              </a>
+              <a href="category-air-conditioners.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Fujitsu ASTG22KMCA</span><span class="text-gray-400">$1,199</span>
+              </a>
+              <a href="category-air-conditioners.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Samsung WindFree</span><span class="text-gray-400">$949</span>
+              </a>
+              <a href="category-air-conditioners.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Panasonic Etherea</span><span class="text-gray-400">$1,049</span>
+              </a>
+            </div>
+            <a href="category-air-conditioners.html" class="mt-5 inline-block self-start bg-amber-400 px-5 py-2 text-sm font-medium text-black hover:bg-yellow-300">
+              Ver catálogo completo →
+            </a>
+          </div>
+
+          <!-- Televisions panel -->
+          <div x-show="activeCategory === 'televisions'" class="flex w-full flex-col">
+            <p class="mb-3 font-medium text-gray-500">TELEVISIONS</p>
+            <div class="grid grid-cols-3 gap-x-8 gap-y-2 text-sm">
+              <a href="category-televisions.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Samsung QLED 4K</span><span class="text-gray-400">$999</span>
+              </a>
+              <a href="category-televisions.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>LG OLED C3</span><span class="text-gray-400">$1,499</span>
+              </a>
+              <a href="category-televisions.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Sony Bravia XR</span><span class="text-gray-400">$1,299</span>
+              </a>
+              <a href="category-televisions.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>TCL 6-Series</span><span class="text-gray-400">$649</span>
+              </a>
+              <a href="category-televisions.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Hisense U8H 65"</span><span class="text-gray-400">$799</span>
+              </a>
+              <a href="category-televisions.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Philips Ambilight 55"</span><span class="text-gray-400">$849</span>
+              </a>
+              <a href="category-televisions.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Panasonic JZ2000</span><span class="text-gray-400">$1,699</span>
+              </a>
+              <a href="category-televisions.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Vizio P-Series</span><span class="text-gray-400">$549</span>
+              </a>
+              <a href="category-televisions.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Sharp Aquos 4K</span><span class="text-gray-400">$499</span>
+              </a>
+            </div>
+            <a href="category-televisions.html" class="mt-5 inline-block self-start bg-amber-400 px-5 py-2 text-sm font-medium text-black hover:bg-yellow-300">
+              Ver catálogo completo →
+            </a>
+          </div>
+
+          <!-- Kitchen Appliances panel -->
+          <div x-show="activeCategory === 'kitchen-appliances'" class="flex w-full flex-col">
+            <p class="mb-3 font-medium text-gray-500">KITCHEN APPLIANCES</p>
+            <div class="grid grid-cols-3 gap-x-8 gap-y-2 text-sm">
+              <a href="category-kitchen-appliances.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Instant Pot Pro</span><span class="text-gray-400">$129</span>
+              </a>
+              <a href="category-kitchen-appliances.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>KitchenAid Mixer</span><span class="text-gray-400">$449</span>
+              </a>
+              <a href="category-kitchen-appliances.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Cuisinart Air Fryer</span><span class="text-gray-400">$179</span>
+              </a>
+              <a href="category-kitchen-appliances.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Ninja Foodi</span><span class="text-gray-400">$249</span>
+              </a>
+              <a href="category-kitchen-appliances.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Breville Barista Pro</span><span class="text-gray-400">$699</span>
+              </a>
+              <a href="category-kitchen-appliances.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>De'Longhi Dedica</span><span class="text-gray-400">$299</span>
+              </a>
+              <a href="category-kitchen-appliances.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Vitamix 5200</span><span class="text-gray-400">$399</span>
+              </a>
+              <a href="category-kitchen-appliances.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Tefal OptiGrill</span><span class="text-gray-400">$159</span>
+              </a>
+              <a href="category-kitchen-appliances.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Philips HD9741</span><span class="text-gray-400">$199</span>
+              </a>
+            </div>
+            <a href="category-kitchen-appliances.html" class="mt-5 inline-block self-start bg-amber-400 px-5 py-2 text-sm font-medium text-black hover:bg-yellow-300">
+              Ver catálogo completo →
+            </a>
+          </div>
+
+          <!-- Small Appliances panel -->
+          <div x-show="activeCategory === 'small-appliances'" class="flex w-full flex-col">
+            <p class="mb-3 font-medium text-gray-500">SMALL APPLIANCES</p>
+            <div class="grid grid-cols-3 gap-x-8 gap-y-2 text-sm">
+              <a href="category-small-appliances.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Dyson Hot+Cool</span><span class="text-gray-400">$549</span>
+              </a>
+              <a href="category-small-appliances.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>iRobot Roomba j7+</span><span class="text-gray-400">$599</span>
+              </a>
+              <a href="category-small-appliances.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Dyson V15 Detect</span><span class="text-gray-400">$749</span>
+              </a>
+              <a href="category-small-appliances.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Philips Air Fryer</span><span class="text-gray-400">$149</span>
+              </a>
+              <a href="category-small-appliances.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Bissell CrossWave</span><span class="text-gray-400">$279</span>
+              </a>
+              <a href="category-small-appliances.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Shark IQ Robot</span><span class="text-gray-400">$449</span>
+              </a>
+              <a href="category-small-appliances.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Roborock S7 MaxV</span><span class="text-gray-400">$699</span>
+              </a>
+              <a href="category-small-appliances.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Keurig K-Elite</span><span class="text-gray-400">$169</span>
+              </a>
+              <a href="category-small-appliances.html" class="flex justify-between gap-4 hover:text-amber-500">
+                <span>Nespresso Vertuo</span><span class="text-gray-400">$199</span>
+              </a>
+            </div>
+            <a href="category-small-appliances.html" class="mt-5 inline-block self-start bg-amber-400 px-5 py-2 text-sm font-medium text-black hover:bg-yellow-300">
+              Ver catálogo completo →
+            </a>
+          </div>
+
         </div>
       </div>
     </section>
@@ -581,26 +622,29 @@
     <div class="relative">
       <img
         class="w-full object-cover brightness-50 filter lg:h-[500px]"
-        src="./assets/images/header-bg.jpeg"
+        src="./assets/images/cuando-comprar-electrodomesticos.webp"
         alt="Living room image"
       />
 
       <div
         class="absolute top-1/2 left-1/2 mx-auto flex w-11/12 max-w-[1200px] -translate-x-1/2 -translate-y-1/2 flex-col text-center text-white lg:ml-5"
       >
-        <h1 class="text-4xl font-bold sm:text-5xl lg:text-left">
-          Best Collection for Home decoration
+        <h1 class="text-4xl font-bold sm:text-5xl lg:text-left" data-i18n="The Best Selection in Home Appliances">
+          The Best Selection in Home Appliances
         </h1>
         <p class="pt-3 text-xs lg:w-3/5 lg:pt-5 lg:text-left lg:text-base">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur
-          aperiam natus, nulla, obcaecati nesciunt, itaque adipisci earum
-          ducimus pariatur eaque labore.
-        </p>
-        <button
-          class="mx-auto mt-5 w-1/2 bg-amber-400 px-3 py-1 text-black duration-100 hover:bg-yellow-300 lg:mx-0 lg:h-10 lg:w-2/12 lg:px-10"
+          <span data-i18n="<span data-i18n="Find the appliances your home needs quality, technology, and the best prices all in one place.">Find the appliances your home needs quality, technology, and the best prices all in one place.">Find the appliances your home needs quality, technology, and the best prices all in one place.</span></span></p>
+        <a
+          href="https://wa.me/15613845205"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-5 inline-flex items-center justify-center gap-2 self-center bg-amber-400 px-6 py-2 font-semibold text-black duration-100 hover:bg-yellow-300 lg:h-10 lg:self-start lg:px-10"
         >
-          Order Now
-        </button>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Contáctenos
+        </a>
       </div>
     </div>
 
@@ -634,7 +678,7 @@
         </div>
 
         <div class="ml-6 flex flex-col justify-center">
-          <h3 class="text-left text-xs font-bold lg:text-sm">Free Delivery</h3>
+          <h3 class="text-left text-xs font-bold lg:text-sm" data-i18n="Free Delivery">Free Delivery</h3>
           <p class="text-light text-center text-xs lg:text-left lg:text-sm">
             Orders from $200
           </p>
@@ -664,8 +708,8 @@
         </div>
 
         <div class="ml-6 flex flex-col justify-center">
-          <h3 class="text-left text-xs font-bold lg:text-sm">Money returns</h3>
-          <p class="text-light text-left text-xs lg:text-sm">
+          <h3 class="text-left text-xs font-bold lg:text-sm" data-i18n="Money returns">Money returns</h3>
+          <p class="text-light text-left text-xs lg:text-sm" data-i18n="30 Days guarantee">
             30 Days guarantee
           </p>
         </div>
@@ -694,8 +738,8 @@
         </div>
 
         <div class="ml-6 flex flex-col justify-center">
-          <h3 class="text-left text-xs font-bold lg:text-sm">24/7 Supports</h3>
-          <p class="text-light text-left text-xs lg:text-sm">
+          <h3 class="text-left text-xs font-bold lg:text-sm" data-i18n="24/7 Supports">24/7 Supports</h3>
+          <p class="text-light text-left text-xs lg:text-sm" data-i18n="Consumer support">
             Consumer support
           </p>
         </div>
@@ -704,119 +748,53 @@
 
     <!-- /Cons bages  -->
 
-    <h2 class="mx-auto mb-5 max-w-[1200px] px-5">SHOP BY CATHEGORY</h2>
+    <h2 class="mx-auto mb-5 max-w-[1200px] px-5" data-i18n="SHOP BY CATEGORY" data-i18n="SHOP BY CATEGORY">SHOP BY CATEGORY</h2>
 
     <!-- Cathegories -->
-    <section
-      class="mx-auto grid max-w-[1200px] grid-cols-2 px-5 lg:grid-cols-3 lg:gap-5"
-    >
-      <!-- 1 -->
+    <section class="mx-auto grid max-w-[1200px] grid-cols-2 gap-3 px-5 lg:grid-cols-3 lg:gap-5">
 
-      <a href="#">
-        <div class="relative cursor-pointer">
-          <img
-            class="mx-auto h-auto w-auto brightness-50 duration-300 hover:brightness-100"
-            src="./assets/images/bedroom.png"
-            alt="bedroom cathegory image"
-          />
-
-          <p
-            class="pointer-events-none absolute top-1/2 left-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 text-center text-white lg:text-xl"
-          >
-            Bedroom
-          </p>
+      <a href="category-washing-machines.html">
+        <div class="relative cursor-pointer overflow-hidden rounded-lg h-48 lg:h-64">
+          <img class="h-full w-full object-cover brightness-50 duration-300 hover:brightness-75 hover:scale-105 transition-all" src="./assets/images/cat-washing-machines.jpg" alt="Washing Machines" />
+          <p class="pointer-events-none absolute top-1/2 left-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 text-center text-white text-lg font-semibold lg:text-2xl drop-shadow" data-i18n="Washing Machines">Washing Machines</p>
         </div>
       </a>
 
-      <!-- 2 -->
-
-      <a href="#">
-        <div class="relative cursor-pointer">
-          <img
-            class="mx-auto h-auto w-auto brightness-50 duration-300 hover:brightness-100"
-            src="./assets/images/matrass.png"
-            alt="Matrass cathegory image"
-          />
-
-          <p
-            class="pointer-events-none absolute top-1/2 left-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 text-center text-white lg:text-xl"
-          >
-            Matrass
-          </p>
+      <a href="category-refrigerators.html">
+        <div class="relative cursor-pointer overflow-hidden rounded-lg h-48 lg:h-64">
+          <img class="h-full w-full object-cover brightness-50 duration-300 hover:brightness-75 hover:scale-105 transition-all" src="./assets/images/cat-refrigerators.jpg" alt="Refrigerators" />
+          <p class="pointer-events-none absolute top-1/2 left-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 text-center text-white text-lg font-semibold lg:text-2xl drop-shadow" data-i18n="Refrigerators">Refrigerators</p>
         </div>
       </a>
 
-      <!-- 3  -->
-
-      <a href="#">
-        <div class="relative cursor-pointer">
-          <img
-            class="mx-auto h-auto w-auto brightness-50 duration-300 hover:brightness-100"
-            src="./assets/images/outdoors.png"
-            alt="kitchen cathegory image"
-          />
-
-          <p
-            class="pointer-events-none absolute top-1/2 left-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 text-center text-white lg:text-xl"
-          >
-            Outdoor
-          </p>
+      <a href="category-air-conditioners.html">
+        <div class="relative cursor-pointer overflow-hidden rounded-lg h-48 lg:h-64">
+          <img class="h-full w-full object-cover brightness-50 duration-300 hover:brightness-75 hover:scale-105 transition-all" src="./assets/images/cat-air-conditioners.jpg" alt="Air Conditioners" />
+          <p class="pointer-events-none absolute top-1/2 left-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 text-center text-white text-lg font-semibold lg:text-2xl drop-shadow" data-i18n="Air Conditioners">Air Conditioners</p>
         </div>
       </a>
 
-      <!-- 4 -->
-
-      <a href="#">
-        <div class="relative cursor-pointer">
-          <img
-            class="mx-auto h-auto w-auto brightness-50 duration-300 hover:brightness-100"
-            src="./assets/images/product-bigsofa.png"
-            alt="bedroom cathegory image"
-          />
-
-          <p
-            class="pointer-events-none absolute top-1/2 left-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 text-center text-white lg:text-xl"
-          >
-            Sofa
-          </p>
+      <a href="category-televisions.html">
+        <div class="relative cursor-pointer overflow-hidden rounded-lg h-48 lg:h-64">
+          <img class="h-full w-full object-cover brightness-50 duration-300 hover:brightness-75 hover:scale-105 transition-all" src="./assets/images/cat-televisions.jpg" alt="Televisions" />
+          <p class="pointer-events-none absolute top-1/2 left-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 text-center text-white text-lg font-semibold lg:text-2xl drop-shadow" data-i18n="Televisions">Televisions</p>
         </div>
       </a>
 
-      <!-- 5  -->
-
-      <a href="#">
-        <div class="relative cursor-pointer">
-          <img
-            class="mx-auto h-auto w-auto brightness-50 duration-300 hover:brightness-100"
-            src="./assets/images/kitchen.png"
-            alt="bedroom cathegory image"
-          />
-
-          <p
-            class="pointer-events-none absolute top-1/2 left-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 text-center text-white lg:text-xl"
-          >
-            Kitchen
-          </p>
+      <a href="category-kitchen-appliances.html">
+        <div class="relative cursor-pointer overflow-hidden rounded-lg h-48 lg:h-64">
+          <img class="h-full w-full object-cover brightness-50 duration-300 hover:brightness-75 hover:scale-105 transition-all" src="./assets/images/cat-kitchen-appliances.jpg" alt="Kitchen Appliances" />
+          <p class="pointer-events-none absolute top-1/2 left-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 text-center text-white text-lg font-semibold lg:text-2xl drop-shadow" data-i18n="Kitchen Appliances">Kitchen Appliances</p>
         </div>
       </a>
 
-      <!-- 6 -->
-
-      <a href="#">
-        <div class="relative cursor-pointer">
-          <img
-            class="mx-auto h-auto w-auto brightness-50 duration-300 hover:brightness-100"
-            src="./assets/images/living-room.png"
-            alt="bedroom cathegory image"
-          />
-
-          <p
-            class="pointer-events-none absolute top-1/2 left-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 text-center text-white lg:text-xl"
-          >
-            Living room
-          </p>
+      <a href="category-small-appliances.html">
+        <div class="relative cursor-pointer overflow-hidden rounded-lg h-48 lg:h-64">
+          <img class="h-full w-full object-cover brightness-50 duration-300 hover:brightness-75 hover:scale-105 transition-all" src="./assets/images/cat-small-appliances.jpg" alt="Small Appliances" />
+          <p class="pointer-events-none absolute top-1/2 left-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 text-center text-white text-lg font-semibold lg:text-2xl drop-shadow" data-i18n="Small Appliances">Small Appliances</p>
         </div>
       </a>
+
     </section>
     <!-- /Cathegories  -->
 
@@ -842,7 +820,7 @@
               />
 
               <div>
-                <p class="mt-2">GUYER CHAIR</p>
+                <p class="mt-2">SAMSUNG WASHER PRO</p>
                 <p class="font-medium text-violet-900">
                   $45.00
                   <span class="text-sm text-gray-500 line-through"
@@ -919,9 +897,7 @@
                 </div>
 
                 <div>
-                  <button class="my-5 h-10 w-full bg-violet-900 text-white">
-                    Add to cart
-                  </button>
+                  <a href="product-overview.html" class="my-5 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100" data-i18n="View Details" data-i18n="View Details">View Details</a>
                 </div>
               </div>
             </div>
@@ -937,7 +913,7 @@
               />
 
               <div>
-                <p class="mt-2">PURPLE CHAIR</p>
+                <p class="mt-2">LG SMART TV 55"</p>
                 <p class="font-medium text-violet-900">
                   $45.00
                   <span class="text-sm text-gray-500 line-through"
@@ -1014,9 +990,7 @@
                 </div>
 
                 <div>
-                  <button class="my-5 h-10 w-full bg-violet-900 text-white">
-                    Add to cart
-                  </button>
+                  <a href="product-overview.html" class="my-5 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100" data-i18n="View Details" data-i18n="View Details">View Details</a>
                 </div>
               </div>
             </div>
@@ -1032,7 +1006,7 @@
               />
 
               <div>
-                <p class="mt-2">LARGE SOFA</p>
+                <p class="mt-2">BOSCH DISHWASHER</p>
                 <p class="font-medium text-violet-900">
                   $45.00
                   <span class="text-sm text-gray-500 line-through"
@@ -1109,9 +1083,7 @@
                 </div>
 
                 <div>
-                  <button class="my-5 h-10 w-full bg-violet-900 text-white">
-                    Add to cart
-                  </button>
+                  <a href="product-overview.html" class="my-5 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100" data-i18n="View Details" data-i18n="View Details">View Details</a>
                 </div>
               </div>
             </div>
@@ -1128,7 +1100,7 @@
               />
 
               <div>
-                <p class="mt-2">PERFECTO KITCHEN</p>
+                <p class="mt-2">SAMSUNG FRENCH DOOR</p>
                 <p class="font-medium text-violet-900">
                   $45.00
                   <span class="text-sm text-gray-500 line-through"
@@ -1205,9 +1177,7 @@
                 </div>
 
                 <div>
-                  <button class="my-5 h-10 w-full bg-violet-900 text-white">
-                    Add to cart
-                  </button>
+                  <a href="product-overview.html" class="my-5 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100" data-i18n="View Details" data-i18n="View Details">View Details</a>
                 </div>
               </div>
             </div>
@@ -1224,7 +1194,7 @@
               />
 
               <div>
-                <p class="mt-2">MATRASS COMFORT +</p>
+                <p class="mt-2">DYSON V15 DETECT</p>
                 <p class="font-medium text-violet-900">
                   $45.00
                   <span class="text-sm text-gray-500 line-through"
@@ -1301,9 +1271,7 @@
                 </div>
 
                 <div>
-                  <button class="my-5 h-10 w-full bg-violet-900 text-white">
-                    Add to cart
-                  </button>
+                  <a href="product-overview.html" class="my-5 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100" data-i18n="View Details" data-i18n="View Details">View Details</a>
                 </div>
               </div>
             </div>
@@ -1320,7 +1288,7 @@
               />
 
               <div>
-                <p class="mt-2">QUEEN SIZE BED</p>
+                <p class="mt-2">PHILIPS AIR FRYER</p>
                 <p class="font-medium text-violet-900">
                   $45.00
                   <span class="text-sm text-gray-500 line-through"
@@ -1397,9 +1365,7 @@
                 </div>
 
                 <div>
-                  <button class="my-5 h-10 w-full bg-violet-900 text-white">
-                    Add to cart
-                  </button>
+                  <a href="product-overview.html" class="my-5 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100" data-i18n="View Details" data-i18n="View Details">View Details</a>
                 </div>
               </div>
             </div>
@@ -1415,11 +1381,11 @@
         class="mt-10 flex max-w-[1200px] justify-between bg-violet-900 px-5"
       >
         <div class="py-8 px-3 lg:px-16">
-          <p class="text-white">ONLINE EXCLUSIVE</p>
-          <h2 class="pt-6 text-5xl font-bold text-yellow-400">15% OFF</h2>
+          <p class="text-white" data-i18n="ONLINE EXCLUSIVE">ONLINE EXCLUSIVE</p>
+          <h2 class="pt-6 text-5xl font-bold text-yellow-400" data-i18n="15% OFF TODAY ONLY">15% OFF TODAY ONLY</h2>
           <p class="pt-4 text-white">
-            ACCENT CHAIRS, <br />
-            TABLES & OTTOMANS
+            Refrigerators, <br />
+            Smart Tv
           </p>
           <button
             href="#"
@@ -1431,7 +1397,7 @@
 
         <img
           class="-mr-5 hidden w-[550px] object-cover md:block"
-          src="./assets/images/sale-bage.jpeg"
+          src="./assets/images/D_NQ_NP_695627-MLA71224014547_082023-B.webp"
           alt="Rainbow credit card with macbook on a background"
         />
       </section>
@@ -1576,9 +1542,7 @@
           </div>
 
           <div>
-            <button class="my-5 h-10 w-full bg-violet-900 text-white">
-              Add to cart
-            </button>
+            <a href="product-overview.html" class="my-5 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100" data-i18n="View Details" data-i18n="View Details">View Details</a>
           </div>
         </div>
       </div>
@@ -1715,9 +1679,7 @@
           </div>
 
           <div>
-            <button class="my-5 h-10 w-full bg-violet-900 text-white">
-              Add to cart
-            </button>
+            <a href="product-overview.html" class="my-5 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100" data-i18n="View Details" data-i18n="View Details">View Details</a>
           </div>
         </div>
       </div>
@@ -1849,9 +1811,7 @@
           </div>
 
           <div>
-            <button class="my-5 h-10 w-full bg-violet-900 text-white">
-              Add to cart
-            </button>
+            <a href="product-overview.html" class="my-5 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100" data-i18n="View Details" data-i18n="View Details">View Details</a>
           </div>
         </div>
       </div>
@@ -1987,9 +1947,7 @@
           </div>
 
           <div>
-            <button class="my-5 h-10 w-full bg-violet-900 text-white">
-              Add to cart
-            </button>
+            <a href="product-overview.html" class="my-5 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100" data-i18n="View Details" data-i18n="View Details">View Details</a>
           </div>
         </div>
       </div>
@@ -2121,9 +2079,7 @@
           </div>
 
           <div>
-            <button class="my-5 h-10 w-full bg-violet-900 text-white">
-              Add to cart
-            </button>
+            <a href="product-overview.html" class="my-5 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100" data-i18n="View Details" data-i18n="View Details">View Details</a>
           </div>
         </div>
       </div>
@@ -2259,9 +2215,7 @@
           </div>
 
           <div>
-            <button class="my-5 h-10 w-full bg-violet-900 text-white">
-              Add to cart
-            </button>
+            <a href="product-overview.html" class="my-5 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100" data-i18n="View Details" data-i18n="View Details">View Details</a>
           </div>
         </div>
       </div>
@@ -2397,9 +2351,7 @@
           </div>
 
           <div>
-            <button class="my-5 h-10 w-full bg-violet-900 text-white">
-              Add to cart
-            </button>
+            <a href="product-overview.html" class="my-5 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100" data-i18n="View Details" data-i18n="View Details">View Details</a>
           </div>
         </div>
       </div>
@@ -2535,9 +2487,7 @@
           </div>
 
           <div>
-            <button class="my-5 h-10 w-full bg-violet-900 text-white">
-              Add to cart
-            </button>
+            <a href="product-overview.html" class="my-5 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100" data-i18n="View Details" data-i18n="View Details">View Details</a>
           </div>
         </div>
       </div>
@@ -2550,78 +2500,54 @@
       class="mx-auto w-full max-w-[1200px] justify-between pb-10 flex flex-col lg:flex-row"
     >
       <div class="ml-5">
-        <img
-          class="mt-10 mb-5"
-          src="./assets/images/company-logo.svg"
-          alt="company logo"
-        />
-        <p class="pl-0">
-          Lorem ipsum dolor sit amet consectetur <br />
-          adipisicing elit.
+        <p class="mt-10 mb-5 text-xl font-bold text-violet-900">Julio Cash <span class="text-amber-400">Electronic Inc</span></p>
+        <p class="pl-0 text-sm text-gray-600">
+          <span data-i18n="Your trusted source for home appliances and electronics in Hialeah, FL.">Your trusted source for home appliances and electronics in Hialeah, FL.</span>
         </p>
         <div class="mt-10 flex gap-3">
-          <a href="https://github.com/bbulakh">
-            <img
-              class="h-5 w-5 cursor-pointer"
-              src="./assets/images/github.svg"
-              alt="github icon"
-            />
+          <a href="#">
+            <img class="h-5 w-5 cursor-pointer" src="./assets/images/github.svg" alt="facebook icon" />
           </a>
-          <a href="https://t.me/b_bulakh">
-            <img
-              class="h-5 w-5 cursor-pointer"
-              src="./assets/images/telegram.svg"
-              alt="telegram icon"
-            />
+          <a href="#">
+            <img class="h-5 w-5 cursor-pointer" src="./assets/images/telegram.svg" alt="instagram icon" />
           </a>
-          <a href="https://www.linkedin.com/in/bogdan-bulakh-393284190/">
-            <img
-              class="h-5 w-5 cursor-pointer"
-              src="./assets/images/linkedin.svg"
-              alt="twitter icon"
-            />
+          <a href="#">
+            <img class="h-5 w-5 cursor-pointer" src="./assets/images/linkedin.svg" alt="linkedin icon" />
           </a>
         </div>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
         <div class="mx-5 mt-10">
-          <p class="font-medium text-gray-500">FEATURES</p>
+          <p class="font-medium text-gray-500" data-i18n="SHOP">SHOP</p>
           <ul class="text-sm leading-8">
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Commerce</a></li>
-            <li><a href="#">Analytics</a></li>
-            <li><a href="#">Merchendise</a></li>
+            <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Washing Machines</a></li>
+            <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Refrigerators</a></li>
+            <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Air Conditioners</a></li>
+            <li><a href="catalog.html" data-category="televisions" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Televisions</a></li>
+            <li><a href="catalog.html" data-category="kitchen-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Kitchen Appliances</a></li>
+            <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Small Appliances</a></li>
           </ul>
         </div>
 
         <div class="mx-5 mt-10">
-          <p class="font-medium text-gray-500">SUPPORT</p>
+          <p class="font-medium text-gray-500" data-i18n="CUSTOMER SERVICE">CUSTOMER SERVICE</p>
           <ul class="text-sm leading-8">
-            <li><a href="#">Pricing</a></li>
-            <li><a href="#">Docs</a></li>
-            <li><a href="#">Audition</a></li>
-            <li><a href="#">Art Status</a></li>
+            <li><a href="#" data-i18n="Warranty">Warranty</a></li>
+            <li><a href="#" data-i18n="Returns Policy">Returns Policy</a></li>
+            <li><a href="#" data-i18n="Shipping Info">Shipping Info</a></li>
+            <li><a href="#" data-i18n="FAQ">FAQ</a></li>
           </ul>
         </div>
 
         <div class="mx-5 mt-10">
-          <p class="font-medium text-gray-500">DOCUMENTS</p>
+          <p class="font-medium text-gray-500" data-i18n="CONTACT">CONTACT</p>
           <ul class="text-sm leading-8">
-            <li><a href="#">Terms</a></li>
-            <li><a href="#">Conditions</a></li>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">License</a></li>
-          </ul>
-        </div>
-
-        <div class="mx-5 mt-10">
-          <p class="font-medium text-gray-500">DELIVERY</p>
-          <ul class="text-sm leading-8">
-            <li><a href="#">List of countries</a></li>
-            <li><a href="#">Special information</a></li>
-            <li><a href="#">Restrictions</a></li>
-            <li><a href="#">Payment</a></li>
+            <li><a href="about-us.html" data-i18n="About Us" data-i18n="About Us">About Us</a></li>
+            <li><a href="contact-us.html" data-i18n="Contact Us" data-i18n="Contact Us">Contact Us</a></li>
+            <li><a href="mailto:julioacosta777@myyahoo.com" class="break-all">julioacosta777@myyahoo.com</a></li>
+            <li><a href="tel:+15613845205">+1 (561) 384-5205</a></li>
+            <li class="text-gray-600">1413 W 43rd Pl, Hialeah, FL 33012</li>
           </ul>
         </div>
       </div>
@@ -2655,6 +2581,7 @@
       </div>
     </section>
     <!-- /Payment and copyright  -->
+    <script src="./assets/js/lang.js"></script>
     <script type="module" src="assets/js/script.js"></script>
   </body>
 </html>

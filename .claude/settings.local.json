@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node update-products.mjs)",
+      "Bash(node -e \":*)"
+    ]
+  }
+}

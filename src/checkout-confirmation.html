@@ -25,11 +25,7 @@
           class="mx-auto flex h-16 w-full max-w-[1200px] items-center justify-between px-5"
         >
           <a href="index.html">
-            <img
-              class="cursor-pointer sm:h-auto sm:w-auto"
-              src="./assets/images/company-logo.svg"
-              alt="company logo"
-            />
+            <span class="text-xl font-bold text-violet-900">Julio Cash <span class="text-amber-400">Electronic Inc</span></span>
           </a>
 
           <div class="md:hidden">
@@ -75,86 +71,31 @@
 
             <button
               class="ml-auto h-full bg-amber-400 px-4 hover:bg-yellow-300"
-            >
-              Search
-            </button>
+            ><span data-i18n="Search">Search</span></button>
           </form>
 
-          <div class="hidden gap-3 md:!flex">
-            <a
-              href="wishlist.html"
-              class="flex cursor-pointer flex-col items-center justify-center"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="h-6 w-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-                />
+          
+    
+          
+          <!-- Language Selector -->
+          <div class="relative hidden md:block ml-4 flex-shrink-0" id="lang-dropdown-container">
+            <button id="lang-toggle" class="flex items-center gap-1.5 border border-violet-900 rounded px-3 py-1.5 text-sm text-violet-900 font-medium hover:bg-violet-50 transition-colors">
+              <span id="lang-flag"></span>
+              <span id="lang-label">EN</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="h-3.5 w-3.5 ml-0.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
               </svg>
-
-              <p class="text-xs">Wishlist</p>
-            </a>
-
-            <a
-              href="cart.html"
-              class="flex cursor-pointer flex-col items-center justify-center"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="h-6 w-6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-
-              <p class="text-xs">Cart</p>
-            </a>
-
-            <a
-              href="account-page.html"
-              class="relative flex cursor-pointer flex-col items-center justify-center"
-            >
-              <span class="absolute bottom-[33px] right-1 flex h-2 w-2">
-                <span
-                  class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"
-                ></span>
-                <span
-                  class="relative inline-flex h-2 w-2 rounded-full bg-red-500"
-                ></span>
-              </span>
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="h-6 w-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-                />
-              </svg>
-
-              <p class="text-xs">Account</p>
-            </a>
+            </button>
+            <div id="lang-menu" class="hidden absolute right-0 mt-1 bg-white border border-gray-200 rounded shadow-lg z-50 overflow-hidden">
+              <button class="lang-option flex items-center gap-2 px-4 py-2 w-full text-sm hover:bg-gray-50 transition-colors" data-lang="en">
+                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30' class='h-4 w-6 rounded-sm flex-shrink-0'><clipPath id='ca'><path d='M0 0v30h60V0z'/></clipPath><clipPath id='cb'><path d='M30 15h30v15zM0 15h30zM30 0h30zM0 0h30v15z'/></clipPath><g clip-path='url(#ca)'><path d='M0 0v30h60V0z' fill='#012169'/><path d='M0 0l60 30M60 0L0 30' stroke='#fff' stroke-width='6'/><path d='M0 0l60 30M60 0L0 30' clip-path='url(#cb)' stroke='#C8102E' stroke-width='4'/><path d='M30 0v30M0 15h60' stroke='#fff' stroke-width='10'/><path d='M30 0v30M0 15h60' stroke='#C8102E' stroke-width='6'/></g></svg><span>EN</span>
+              </button>
+              <button class="lang-option flex items-center gap-2 px-4 py-2 w-full text-sm hover:bg-gray-50 transition-colors" data-lang="es">
+                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2' class='h-4 w-6 rounded-sm flex-shrink-0'><rect width='3' height='2' fill='#c60b1e'/><rect y='.5' width='3' height='1' fill='#ffc400'/></svg><span>ES</span>
+              </button>
+            </div>
           </div>
-        </header>
+    </header>
         <!-- /Header -->
 
         <!-- Burger menu  -->
@@ -165,82 +106,7 @@
           style="display: none"
         >
           <div class="mx-auto">
-            <div class="mx-auto flex w-full justify-center gap-3 py-4">
-              <a
-                href="wishlist.html"
-                class="flex cursor-pointer flex-col items-center justify-center"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="h-6 w-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-                  />
-                </svg>
-
-                <p class="text-xs">Wishlist</p>
-              </a>
-
-              <a
-                href="cart.html"
-                class="flex cursor-pointer flex-col items-center justify-center"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  class="h-6 w-6"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-
-                <p class="text-xs">Cart</p>
-              </a>
-
-              <a
-                href="account-page.html"
-                class="relative flex cursor-pointer flex-col items-center justify-center"
-              >
-                <span class="absolute bottom-[33px] right-1 flex h-2 w-2">
-                  <span
-                    class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"
-                  ></span>
-                  <span
-                    class="relative inline-flex h-2 w-2 rounded-full bg-red-500"
-                  ></span>
-                </span>
-
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="h-6 w-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-                  />
-                </svg>
-
-                <p class="text-xs">Account</p>
-              </a>
-            </div>
-
-            <form class="my-4 mx-5 flex h-9 items-center border">
+                        <form class="my-4 mx-5 flex h-9 items-center border">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -265,15 +131,13 @@
               <button
                 type="submit"
                 class="ml-auto h-full bg-amber-400 px-4 hover:bg-yellow-300"
-              >
-                Search
-              </button>
+              ><span data-i18n="Search">Search</span></button>
             </form>
             <ul class="text-center font-medium">
-              <li class="py-2"><a href="index.html">Home</a></li>
-              <li class="py-2"><a href="catalog.html">Catalog</a></li>
-              <li class="py-2"><a href="about-us.html">About Us</a></li>
-              <li class="py-2"><a href="contact-us.html">Contact Us</a></li>
+              <li class="py-2"><a href="index.html" data-i18n="Home">Home</a></li>
+              <li class="py-2"><a href="catalog.html" data-i18n="Catalog">Catalog</a></li>
+              <li class="py-2"><a href="about-us.html" data-i18n="About Us">About Us</a></li>
+              <li class="py-2"><a href="contact-us.html" data-i18n="Contact Us">Contact Us</a></li>
             </ul>
           </div>
         </section>
@@ -304,10 +168,7 @@
                     stroke-linejoin="round"
                     d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
                   />
-                </svg>
-
-                All categories
-              </div>
+                </svg><span data-i18n="All categories">All categories</span></div>
             </button>
 
             <div class="mx-7 flex gap-8">
@@ -333,26 +194,12 @@
               >
             </div>
 
-            <div class="ml-auto flex gap-4 px-5">
-              <a
-                class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
-                href="login.html"
-                >Login</a
-              >
-
-              <span class="text-white">&#124;</span>
-
-              <a
-                class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
-                href="sign-up.html"
-                >Sign Up</a
-              >
-            </div>
+            
           </div>
         </nav>
         <!-- /Nav bar -->
 
-        <!-- Menu  -->
+<!-- Menu  -->
         <section
           x-show="desktopMenuOpen"
           @click.outside="desktopMenuOpen = false"
@@ -361,229 +208,82 @@
         >
           <div class="mx-auto flex max-w-[1200px] py-10">
             <div class="w-[300px] border-r">
-              <ul class="px-5">
-                <li
-                  class="active:blue-900 flex items-center gap-2 bg-amber-400 py-2 px-3 active:bg-amber-400"
-                >
-                  <img
-                    width="15px"
-                    height="15px"
-                    src="./assets/images/bed.svg"
-                    alt="Bedroom icon"
-                  />
-                  Bedroom
-                  <span class="ml-auto"
-                    ><svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="h-4 w-4"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                      />
-                    </svg>
-                  </span>
-                </li>
-
-                <li
-                  class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400"
-                >
-                  <img
-                    width="15px"
-                    height="15px"
-                    src="./assets/images/sleep.svg"
-                    alt="bedroom icon"
-                  />
-                  Matrass
-                  <span class="ml-auto"
-                    ><svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="h-4 w-4"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                      />
-                    </svg>
-                  </span>
-                </li>
-
-                <li
-                  class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400"
-                >
-                  <img
-                    width="15px"
-                    height="15px"
-                    src="./assets/images/outdoor.svg"
-                    alt="bedroom icon"
-                  />
-                  Outdoor
-                  <span class="ml-auto"
-                    ><svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="h-4 w-4"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                      />
-                    </svg>
-                  </span>
-                </li>
-
-                <li
-                  class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400"
-                >
-                  <img
-                    width="15px"
-                    height="15px"
-                    src="./assets/images/sofa.svg"
-                    alt="bedroom icon"
-                  />
-                  Sofa
-                  <span class="ml-auto"
-                    ><svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="h-4 w-4"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                      />
-                    </svg>
-                  </span>
-                </li>
-
-                <li
-                  class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400"
-                >
-                  <img
-                    width="15px"
-                    height="15px"
-                    src="./assets/images/kitchen.svg"
-                    alt="bedroom icon"
-                  />
-                  Kitchen
-                  <span class="ml-auto"
-                    ><svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="h-4 w-4"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                      />
-                    </svg>
-                  </span>
-                </li>
-
-                <li
-                  class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400"
-                >
-                  <img
-                    width="15px"
-                    height="15px"
-                    src="./assets/images/food.svg"
-                    alt="Food icon"
-                  />
-                  Living room
-                  <span class="ml-auto"
-                    ><svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="h-4 w-4"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                      />
-                    </svg>
-                  </span>
-                </li>
-              </ul>
+              <div class="px-5">
+                <a href="category-washing-machines.html" class="active:blue-900 flex items-center gap-2 bg-amber-400 py-2 px-3 active:bg-amber-400 cursor-pointer">
+                  <img width="15px" height="15px" src="./assets/images/bed.svg" alt="Washing Machines icon" />
+                  Washing Machines
+                  <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+                </a>
+                <a href="category-refrigerators.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                  <img width="15px" height="15px" src="./assets/images/sleep.svg" alt="Refrigerators icon" />
+                  Refrigerators
+                  <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+                </a>
+                <a href="category-air-conditioners.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                  <img width="15px" height="15px" src="./assets/images/outdoor.svg" alt="Air Conditioners icon" />
+                  Air Conditioners
+                  <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+                </a>
+                <a href="category-televisions.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                  <img width="15px" height="15px" src="./assets/images/sofa.svg" alt="Televisions icon" />
+                  Televisions
+                  <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+                </a>
+                <a href="category-kitchen-appliances.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                  <img width="15px" height="15px" src="./assets/images/kitchen.svg" alt="Kitchen Appliances icon" />
+                  Kitchen Appliances
+                  <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+                </a>
+                <a href="category-small-appliances.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                  <img width="15px" height="15px" src="./assets/images/food.svg" alt="Small Appliances icon" />
+                  Small Appliances
+                  <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
+                </a>
+              </div>
             </div>
 
             <div class="flex w-full justify-between">
               <div class="flex gap-6">
                 <div class="mx-5">
-                  <p class="font-medium text-gray-500">BEDS</p>
+                  <p class="font-medium text-gray-500">WASHING MACHINES</p>
                   <ul class="text-sm leading-8">
-                    <li><a href="product-overview.html">Italian bed</a></li>
-                    <li><a href="product-overview.html">Queen-size bed</a></li>
-                    <li>
-                      <a href="product-overview.html">Wooden craft bed</a>
-                    </li>
-                    <li><a href="product-overview.html">King-size bed</a></li>
+                    <li><a href="category-washing-machines.html">Samsung WD Pro</a></li>
+                    <li><a href="category-washing-machines.html">LG TurboWash 360</a></li>
+                    <li><a href="category-washing-machines.html">Whirlpool HE Washer</a></li>
+                    <li><a href="category-washing-machines.html">Bosch Series 8</a></li>
                   </ul>
                 </div>
-
                 <div class="mx-5">
-                  <p class="font-medium text-gray-500">LAMPS</p>
+                  <p class="font-medium text-gray-500">REFRIGERATORS</p>
                   <ul class="text-sm leading-8">
-                    <li>
-                      <a href="product-overview.html">Italian Purple Lamp</a>
-                    </li>
-                    <li><a href="product-overview.html">APEX Lamp</a></li>
-                    <li><a href="product-overview.html">PIXAR lamp</a></li>
-                    <li>
-                      <a href="product-overview.html">Ambient Nightlamp</a>
-                    </li>
+                    <li><a href="category-refrigerators.html">Samsung French Door</a></li>
+                    <li><a href="category-refrigerators.html">LG InstaView</a></li>
+                    <li><a href="category-refrigerators.html">Whirlpool 4-Door</a></li>
+                    <li><a href="category-refrigerators.html">Bosch Side-by-Side</a></li>
                   </ul>
                 </div>
-
                 <div class="mx-5">
-                  <p class="font-medium text-gray-500">BEDSIDE TABLES</p>
+                  <p class="font-medium text-gray-500">AIR CONDITIONERS</p>
                   <ul class="text-sm leading-8">
-                    <li><a href="product-overview.html">Purple Table</a></li>
-                    <li><a href="product-overview.html">Easy Bedside</a></li>
-                    <li><a href="product-overview.html">Soft Table</a></li>
-                    <li><a href="product-overview.html">Craft Table</a></li>
+                    <li><a href="category-air-conditioners.html">Daikin Inverter 12k</a></li>
+                    <li><a href="category-air-conditioners.html">Mitsubishi Mini Split</a></li>
+                    <li><a href="category-air-conditioners.html">LG Dual Cool</a></li>
+                    <li><a href="category-air-conditioners.html">Carrier Xpower</a></li>
                   </ul>
                 </div>
-
                 <div class="mx-5">
-                  <p class="font-medium text-gray-500">SPECIAL</p>
+                  <p class="font-medium text-gray-500">FEATURED</p>
                   <ul class="text-sm leading-8">
-                    <li><a href="product-overview.html">Humidifier</a></li>
-                    <li><a href="product-overview.html">Bed Cleaner</a></li>
-                    <li><a href="product-overview.html">Vacuum Cleaner</a></li>
-                    <li><a href="product-overview.html">Pillow</a></li>
+                    <li><a href="category-small-appliances.html">Dyson Hot+Cool</a></li>
+                    <li><a href="category-small-appliances.html">iRobot Roomba j7+</a></li>
+                    <li><a href="category-small-appliances.html">Dyson V15 Detect</a></li>
+                    <li><a href="category-small-appliances.html">Philips Air Fryer</a></li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
         </section>
-
         <!-- /Menu  -->
 
         <!-- breadcrumbs  -->
@@ -644,7 +344,7 @@
 
               <div class="mt-10">
                 <a
-                  href="my-order-history.html"
+                  href="catalog.html"
                   class="mx-auto bg-amber-400 px-4 py-2"
                   >My Orders history</a
                 >
@@ -764,11 +464,7 @@
         class="mx-auto w-full max-w-[1200px] justify-between pb-10 flex flex-col lg:flex-row"
       >
         <div class="ml-5">
-          <img
-            class="mt-10 mb-5"
-            src="./assets/images/company-logo.svg"
-            alt="company logo"
-          />
+          <p class="mt-10 mb-5 text-xl font-bold text-violet-900">Julio Cash <span class="text-amber-400">Electronic Inc</span></p>
           <p class="pl-0">
             Lorem ipsum dolor sit amet consectetur <br />
             adipisicing elit.
@@ -870,6 +566,7 @@
       </section>
     </main>
     <!-- /Payment and copyright  -->
+    <script src="./assets/js/lang.js"></script>
     <script type="module" src="assets/js/script.js"></script>
   </body>
 </html>

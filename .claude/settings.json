@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \":*)",
+      "Bash(pip show:*)",
+      "Bash(node -e \"const sharp = require\\(''sharp''\\); console.log\\(''sharp available''\\);\")",
+      "Bash(node -e \"const jimp = require\\(''jimp''\\); console.log\\(''jimp available''\\);\")",
+      "WebSearch",
+      "WebFetch(domain:www.lg.com)",
+      "WebFetch(domain:www.hsdsonline.com)",
+      "WebFetch(domain:www.homedepot.com)",
+      "WebFetch(domain:unionstore.com)"
+    ]
+  }
+}
