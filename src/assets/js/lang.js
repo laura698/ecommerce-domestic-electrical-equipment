@@ -28,6 +28,7 @@ const TRANSLATIONS = {
     'The Best Selection in Home Appliances': 'La Mejor Selección en Electrodomésticos para el Hogar',
     'Find the appliances your home needs quality, technology, and the best prices all in one place.': 'Encuentra los electrodomésticos que tu hogar necesita: calidad, tecnología y los mejores precios en un solo lugar.',
     'Shop Now': 'Comprar Ahora',
+    'Go to Catalog': 'Ir al Catálogo',
 
     // ── Index — Section headings ─────────────────────────────────────────────
     'SHOP BY CATEGORY': 'COMPRAR POR CATEGORÍA',
