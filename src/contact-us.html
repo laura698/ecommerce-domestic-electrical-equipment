@@ -134,10 +134,10 @@
               ><span data-i18n="Search">Search</span></button>
             </form>
             <ul class="text-center font-medium">
-              <li class="py-2"><a href="index.html" data-i18n="Home" data-i18n="Home">Home</a></li>
-              <li class="py-2"><a href="catalog.html" data-i18n="Catalog" data-i18n="Catalog">Catalog</a></li>
-              <li class="py-2"><a href="about-us.html" data-i18n="About Us" data-i18n="About Us">About Us</a></li>
-              <li class="py-2"><a href="contact-us.html" data-i18n="Contact Us" data-i18n="Contact Us">Contact Us</a></li>
+              <li class="py-2"><a href="index.html" data-i18n="Home">Home</a></li>
+              <li class="py-2"><a href="catalog.html" data-i18n="Catalog">Catalog</a></li>
+              <li class="py-2"><a href="about-us.html" data-i18n="About Us">About Us</a></li>
+              <li class="py-2"><a href="contact-us.html" data-i18n="Contact Us">Contact Us</a></li>
             </ul>
           </div>
         </section>
@@ -152,7 +152,7 @@
           >
             <button
               @click="desktopMenuOpen = ! desktopMenuOpen"
-              class="ml-5 flex h-full w-40 cursor-pointer items-center justify-center bg-amber-400"
+              class="ml-5 flex h-full w-auto cursor-pointer items-center justify-center bg-amber-400 px-4 whitespace-nowrap"
             >
               <div class="flex justify-around" href="#">
                 <svg
@@ -209,32 +209,32 @@
           <div class="mx-auto flex max-w-[1200px] py-10">
             <div class="w-[300px] border-r">
               <div class="px-5">
-                <a href="category-washing-machines.html" class="active:blue-900 flex items-center gap-2 bg-amber-400 py-2 px-3 active:bg-amber-400 cursor-pointer">
+                <a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 bg-amber-400 py-2 px-3 active:bg-amber-400 cursor-pointer">
                   <img width="15px" height="15px" src="./assets/images/bed.svg" alt="Washing Machines icon" />
                   Washing Machines
                   <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
                 </a>
-                <a href="category-refrigerators.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                <a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
                   <img width="15px" height="15px" src="./assets/images/sleep.svg" alt="Refrigerators icon" />
                   Refrigerators
                   <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
                 </a>
-                <a href="category-air-conditioners.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                <a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
                   <img width="15px" height="15px" src="./assets/images/outdoor.svg" alt="Air Conditioners icon" />
                   Air Conditioners
                   <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
                 </a>
-                <a href="category-televisions.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                <a href="catalog.html" data-category="televisions" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
                   <img width="15px" height="15px" src="./assets/images/sofa.svg" alt="Televisions icon" />
                   Televisions
                   <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
                 </a>
-                <a href="category-kitchen-appliances.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                <a href="catalog.html" data-category="kitchen-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
                   <img width="15px" height="15px" src="./assets/images/kitchen.svg" alt="Kitchen Appliances icon" />
                   Kitchen Appliances
                   <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
                 </a>
-                <a href="category-small-appliances.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                <a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
                   <img width="15px" height="15px" src="./assets/images/food.svg" alt="Small Appliances icon" />
                   Small Appliances
                   <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
@@ -245,39 +245,39 @@
             <div class="flex w-full justify-between">
               <div class="flex gap-6">
                 <div class="mx-5">
-                  <p class="font-medium text-gray-500">WASHING MACHINES</p>
-                  <ul class="text-sm leading-8">
-                    <li><a href="category-washing-machines.html">Samsung WD Pro</a></li>
-                    <li><a href="category-washing-machines.html">LG TurboWash 360</a></li>
-                    <li><a href="category-washing-machines.html">Whirlpool HE Washer</a></li>
-                    <li><a href="category-washing-machines.html">Bosch Series 8</a></li>
+                  <p class="font-medium text-gray-400 uppercase tracking-wider text-xs uppercase" data-i18n="Washing Machines">WASHING MACHINES</p>
+                  <ul class="text-sm leading-8 text-gray-800">
+                    <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Samsung WD Pro</a></li>
+                    <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">LG TurboWash 360</a></li>
+                    <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Whirlpool HE Washer</a></li>
+                    <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Bosch Series 8</a></li>
                   </ul>
                 </div>
                 <div class="mx-5">
-                  <p class="font-medium text-gray-500">REFRIGERATORS</p>
-                  <ul class="text-sm leading-8">
-                    <li><a href="category-refrigerators.html">Samsung French Door</a></li>
-                    <li><a href="category-refrigerators.html">LG InstaView</a></li>
-                    <li><a href="category-refrigerators.html">Whirlpool 4-Door</a></li>
-                    <li><a href="category-refrigerators.html">Bosch Side-by-Side</a></li>
+                  <p class="font-medium text-gray-400 uppercase tracking-wider text-xs uppercase" data-i18n="Refrigerators">REFRIGERATORS</p>
+                  <ul class="text-sm leading-8 text-gray-800">
+                    <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Samsung French Door</a></li>
+                    <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">LG InstaView</a></li>
+                    <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Whirlpool 4-Door</a></li>
+                    <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Bosch Side-by-Side</a></li>
                   </ul>
                 </div>
                 <div class="mx-5">
-                  <p class="font-medium text-gray-500">AIR CONDITIONERS</p>
-                  <ul class="text-sm leading-8">
-                    <li><a href="category-air-conditioners.html">Daikin Inverter 12k</a></li>
-                    <li><a href="category-air-conditioners.html">Mitsubishi Mini Split</a></li>
-                    <li><a href="category-air-conditioners.html">LG Dual Cool</a></li>
-                    <li><a href="category-air-conditioners.html">Carrier Xpower</a></li>
+                  <p class="font-medium text-gray-400 uppercase tracking-wider text-xs uppercase" data-i18n="Air Conditioners">AIR CONDITIONERS</p>
+                  <ul class="text-sm leading-8 text-gray-800">
+                    <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Daikin Inverter 12k</a></li>
+                    <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Mitsubishi Mini Split</a></li>
+                    <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">LG Dual Cool</a></li>
+                    <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Carrier Xpower</a></li>
                   </ul>
                 </div>
                 <div class="mx-5">
-                  <p class="font-medium text-gray-500">FEATURED</p>
-                  <ul class="text-sm leading-8">
-                    <li><a href="category-small-appliances.html">Dyson Hot+Cool</a></li>
-                    <li><a href="category-small-appliances.html">iRobot Roomba j7+</a></li>
-                    <li><a href="category-small-appliances.html">Dyson V15 Detect</a></li>
-                    <li><a href="category-small-appliances.html">Philips Air Fryer</a></li>
+                  <p class="font-medium text-gray-400 uppercase tracking-wider text-xs uppercase" data-i18n="Featured">FEATURED</p>
+                  <ul class="text-sm leading-8 text-gray-800">
+                    <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Dyson Hot+Cool</a></li>
+                    <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">iRobot Roomba j7+</a></li>
+                    <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Dyson V15 Detect</a></li>
+                    <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Philips Air Fryer</a></li>
                   </ul>
                 </div>
               </div>
@@ -463,43 +463,44 @@
 
       <!-- Desktop Footer  -->
 
-      <footer
+      <div class="w-full bg-gray-900">
+    <footer
         class="mx-auto w-full max-w-[1200px] justify-between pb-10 flex flex-col lg:flex-row"
       >
         <div class="ml-5">
-          <p class="mt-10 mb-5 text-xl font-bold text-violet-900">Julio Cash <span class="text-amber-400">Electronic Inc</span></p>
-          <p class="pl-0 text-sm text-gray-600">
+          <p class="mt-10 mb-5 text-xl font-bold text-violet-400">Julio Cash <span class="text-amber-400">Electronic Inc</span></p>
+          <p class="pl-0 text-sm text-gray-400">
             <span data-i18n="Your trusted source for home appliances and electronics in Hialeah, FL.">Your trusted source for home appliances and electronics in Hialeah, FL.</span>
           </p>
           <div class="mt-10 flex gap-3">
             <a href="#">
-              <img class="h-5 w-5 cursor-pointer" src="./assets/images/github.svg" alt="facebook icon" />
+              <img class="h-5 w-5 cursor-pointer brightness-0 invert" src="./assets/images/github.svg" alt="facebook icon" />
             </a>
             <a href="#">
-              <img class="h-5 w-5 cursor-pointer" src="./assets/images/telegram.svg" alt="instagram icon" />
+              <img class="h-5 w-5 cursor-pointer brightness-0 invert" src="./assets/images/telegram.svg" alt="instagram icon" />
             </a>
             <a href="#">
-              <img class="h-5 w-5 cursor-pointer" src="./assets/images/linkedin.svg" alt="linkedin icon" />
+              <img class="h-5 w-5 cursor-pointer brightness-0 invert" src="./assets/images/linkedin.svg" alt="linkedin icon" />
             </a>
           </div>
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
           <div class="mx-5 mt-10">
-            <p class="font-medium text-gray-500" data-i18n="SHOP">SHOP</p>
-            <ul class="text-sm leading-8">
-              <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Washing Machines</a></li>
-              <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Refrigerators</a></li>
-              <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Air Conditioners</a></li>
-              <li><a href="catalog.html" data-category="televisions" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Televisions</a></li>
-              <li><a href="catalog.html" data-category="kitchen-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Kitchen Appliances</a></li>
-              <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Small Appliances</a></li>
+            <p class="font-medium text-gray-400 uppercase tracking-wider text-xs" data-i18n="SHOP">SHOP</p>
+            <ul class="text-sm leading-8 text-gray-300">
+              <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Washing Machines">Washing Machines</a></li>
+              <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Refrigerators">Refrigerators</a></li>
+              <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Air Conditioners">Air Conditioners</a></li>
+              <li><a href="catalog.html" data-category="televisions" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Televisions">Televisions</a></li>
+              <li><a href="catalog.html" data-category="kitchen-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Kitchen Appliances">Kitchen Appliances</a></li>
+              <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" data-i18n="Small Appliances">Small Appliances</a></li>
             </ul>
           </div>
 
           <div class="mx-5 mt-10">
-            <p class="font-medium text-gray-500" data-i18n="CUSTOMER SERVICE">CUSTOMER SERVICE</p>
-            <ul class="text-sm leading-8">
+            <p class="font-medium text-gray-400 uppercase tracking-wider text-xs" data-i18n="CUSTOMER SERVICE">CUSTOMER SERVICE</p>
+            <ul class="text-sm leading-8 text-gray-300">
               <li><a href="#" data-i18n="Warranty">Warranty</a></li>
               <li><a href="#" data-i18n="Returns Policy">Returns Policy</a></li>
               <li><a href="#" data-i18n="Shipping Info">Shipping Info</a></li>
@@ -508,47 +509,21 @@
           </div>
 
           <div class="mx-5 mt-10">
-            <p class="font-medium text-gray-500" data-i18n="CONTACT">CONTACT</p>
-            <ul class="text-sm leading-8">
-              <li><a href="about-us.html" data-i18n="About Us" data-i18n="About Us">About Us</a></li>
-              <li><a href="contact-us.html" data-i18n="Contact Us" data-i18n="Contact Us">Contact Us</a></li>
+            <p class="font-medium text-gray-400 uppercase tracking-wider text-xs" data-i18n="CONTACT">CONTACT</p>
+            <ul class="text-sm leading-8 text-gray-300">
+              <li><a href="about-us.html" data-i18n="About Us">About Us</a></li>
+              <li><a href="contact-us.html" data-i18n="Contact Us">Contact Us</a></li>
               <li><a href="mailto:julioacosta777@myyahoo.com" class="break-all">julioacosta777@myyahoo.com</a></li>
               <li><a href="tel:+15613845205">+1 (561) 384-5205</a></li>
-              <li class="text-gray-600">1413 W 43rd Pl, Hialeah, FL 33012</li>
+              <li class="text-gray-400">1413 W 43rd Pl, Hialeah, FL 33012</li>
             </ul>
           </div>
         </div>
       </footer>
-      <!-- /Desktop Footer  -->
+      </div>
+    <!-- /Desktop Footer  -->
 
-      <!-- Payment and copyright  -->
 
-      <section class="h-11 bg-amber-400">
-        <div
-          class="mx-auto flex max-w-[1200px] items-center justify-between px-4 pt-2"
-        >
-          <p>&copy; Bogdan Bulakh, 2023</p>
-          <div class="flex items-center space-x-3">
-            <img
-              class="h-8"
-              src="https://cdn-icons-png.flaticon.com/512/5968/5968299.png"
-              alt="Visa icon"
-            />
-            <img
-              class="h-8"
-              src="https://cdn-icons-png.flaticon.com/512/349/349228.png"
-              alt="AE icon"
-            />
-            <img
-              class="h-8"
-              src="https://cdn-icons-png.flaticon.com/512/5968/5968144.png"
-              alt="Apple pay icon"
-            />
-          </div>
-        </div>
-      </section>
-    </main>
-    <!-- /Payment and copyright  -->
     <script src="./assets/js/lang.js"></script>
     <script type="module" src="assets/js/script.js"></script>
   </body>

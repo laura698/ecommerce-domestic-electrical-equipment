@@ -48,18 +48,31 @@ function formatPrecio(n) {
   return '$' + Number(n).toLocaleString('en-US');
 }
 
-function generarTarjeta(producto) {
+function generarTarjeta(producto, slug = '') {
   const {
     Nombre, 'Precio (USD)': Precio, 'Precio Original (USD)': precioOrig,
     'Imagen (nombre archivo)': imagen, 'Rating (1-5)': Rating, 'Num Reviews': reviews,
-    'URL Detalle': url
+    'URL Detalle': url, Marca, Modelo, Descripcion
   } = producto;
 
   if (!Nombre) return '';   // fila vacía
 
   const desc = calcDescuento(Precio, precioOrig);
   const imgExists = imagen && fs.existsSync(path.join(SRC_DIR, 'assets/images', imagen));
-  const href   = url || 'product-overview.html';
+
+  // Construir URL dinámica con parámetros del producto
+  const p = new URLSearchParams();
+  p.set('n', Nombre);
+  if (Precio)      p.set('p', Precio);
+  if (precioOrig)  p.set('po', precioOrig);
+  if (imagen)      p.set('img', imagen);
+  if (Marca)       p.set('b', Marca);
+  if (Modelo)      p.set('m', Modelo);
+  if (Descripcion) p.set('d', String(Descripcion).slice(0, 400));
+  if (Rating)      p.set('r', Rating);
+  if (reviews)     p.set('rv', reviews);
+  if (slug)        p.set('cat', slug);
+  const href = `product-detail.html#${p.toString()}`;
 
   const imgBlock = imgExists ? `
               <div class="relative flex h-56 overflow-hidden">
@@ -75,7 +88,7 @@ function generarTarjeta(producto) {
                 <p class="mt-2 text-sm uppercase font-medium">${Nombre}</p>
                 <p class="font-medium text-violet-900">${formatPrecio(Precio)}${precioOrig ? ` <span class="text-sm text-gray-500 line-through">${formatPrecio(precioOrig)}</span>` : ''}</p>
                 <div class="flex items-center">${estrellasSVG(Rating || 0)}<p class="text-sm text-gray-400 ml-1">(${reviews || 0})</p></div>
-                <a href="${href}" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100">View Details</a>
+                <a href="${href}" class="mt-3 flex h-10 w-full items-center justify-center bg-violet-900 text-white text-sm hover:bg-violet-800 duration-100"><span data-i18n="View Details">View Details</span></a>
               </div>
             </div>`;
 }
@@ -130,7 +143,8 @@ for (const [hoja, htmlFile] of Object.entries(HOJA_A_HTML)) {
   const htmlPath = path.join(SRC_DIR, htmlFile);
   if (!fs.existsSync(htmlPath)) { console.warn(`⚠️  No encontrado: ${htmlFile}`); continue; }
 
-  const tarjetas = productos.map(generarTarjeta).filter(Boolean).join('');
+  const slug = HOJA_A_SLUG[hoja];
+  const tarjetas = productos.map(p => generarTarjeta(p, slug)).filter(Boolean).join('');
   if (inyectarProductos(htmlPath, tarjetas, `${htmlFile} — ${productos.length} productos`)) {
     actualizados++;
     todosLosProductos.push({ hoja, slug: HOJA_A_SLUG[hoja], productos });
@@ -143,7 +157,7 @@ if (fs.existsSync(catalogPath)) {
   // Generar tarjetas de todas las categorías con data-category
   const tarjetasCatalog = todosLosProductos.map(({ slug, productos }) =>
     productos.map(p => {
-      const card = generarTarjeta(p);
+      const card = generarTarjeta(p, slug);
       // Add data-category to the outer div
       return card.replace('<div class="flex flex-col border rounded overflow-hidden">', `<div class="flex flex-col border rounded overflow-hidden" data-category="${slug}">`);
     }).filter(Boolean).join('')
@@ -163,6 +177,32 @@ if (fs.existsSync(catalogPath)) {
     actualizados++;
   }
 }
+
+// ─── 3. Generar image-map.js para product-detail.html ────────────────────────
+const imgDir = path.join(SRC_DIR, 'assets/images');
+const imageMapPath = path.join(SRC_DIR, 'assets/js/image-map.js');
+
+// Recopilar todas las imágenes de productos usadas en el Excel
+const imagenesUsadas = new Set();
+for (const { productos } of todosLosProductos) {
+  for (const p of productos) {
+    const img = p['Imagen (nombre archivo)'];
+    if (img && fs.existsSync(path.join(imgDir, img))) imagenesUsadas.add(img);
+  }
+}
+// Añadir imágenes de categoría como fallback
+['cat-washing-machines.jpg','cat-refrigerators.jpg','cat-air-conditioners.jpg',
+ 'cat-televisions.jpg','cat-kitchen-appliances.jpg','cat-small-appliances.jpg']
+  .forEach(f => imagenesUsadas.add(f));
+
+const entries = [...imagenesUsadas].sort()
+  .map(f => `  '${f}': new URL('../images/${f}', import.meta.url).href,`)
+  .join('\n');
+
+const imageMapContent = `// Auto-generado por update-products.mjs — no editar manualmente\nexport const IMAGES = {\n${entries}\n};\n`;
+fs.writeFileSync(imageMapPath, imageMapContent);
+console.log(`✅ image-map.js — ${imagenesUsadas.size} imágenes indexadas`);
+actualizados++;
 
 console.log(`\n🎉 Listo. ${actualizados} páginas actualizadas.`);
 console.log('   Recuerda ejecutar "npm run build" para reflejar los cambios en el sitio.');

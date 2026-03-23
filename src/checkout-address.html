@@ -156,7 +156,7 @@
           >
             <button
               @click="desktopMenuOpen = ! desktopMenuOpen"
-              class="ml-5 flex h-full w-40 cursor-pointer items-center justify-center bg-amber-400"
+              class="ml-5 flex h-full w-auto cursor-pointer items-center justify-center bg-amber-400 px-4 whitespace-nowrap"
             >
               <div class="flex justify-around" href="#">
                 <svg
@@ -179,21 +179,25 @@
               <a
                 class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
                 href="index.html"
+                data-i18n="Home"
                 >Home</a
               >
               <a
                 class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
                 href="catalog.html"
+                data-i18n="Catalog"
                 >Catalog</a
               >
               <a
                 class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
                 href="about-us.html"
+                data-i18n="About Us"
                 >About Us</a
               >
               <a
                 class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
                 href="contact-us.html"
+                data-i18n="Contact Us"
                 >Contact Us</a
               >
             </div>
@@ -213,34 +217,34 @@
           <div class="mx-auto flex max-w-[1200px] py-10">
             <div class="w-[300px] border-r">
               <div class="px-5">
-                <a href="category-washing-machines.html" class="active:blue-900 flex items-center gap-2 bg-amber-400 py-2 px-3 active:bg-amber-400 cursor-pointer">
+                <a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 bg-amber-400 py-2 px-3 active:bg-amber-400 cursor-pointer">
                   <img width="15px" height="15px" src="./assets/images/bed.svg" alt="Washing Machines icon" />
-                  Washing Machines
+                  <span data-i18n="Washing Machines">Washing Machines</span>
                   <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
                 </a>
-                <a href="category-refrigerators.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                <a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
                   <img width="15px" height="15px" src="./assets/images/sleep.svg" alt="Refrigerators icon" />
-                  Refrigerators
+                  <span data-i18n="Refrigerators">Refrigerators</span>
                   <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
                 </a>
-                <a href="category-air-conditioners.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                <a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
                   <img width="15px" height="15px" src="./assets/images/outdoor.svg" alt="Air Conditioners icon" />
-                  Air Conditioners
+                  <span data-i18n="Air Conditioners">Air Conditioners</span>
                   <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
                 </a>
-                <a href="category-televisions.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                <a href="catalog.html" data-category="televisions" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
                   <img width="15px" height="15px" src="./assets/images/sofa.svg" alt="Televisions icon" />
-                  Televisions
+                  <span data-i18n="Televisions">Televisions</span>
                   <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
                 </a>
-                <a href="category-kitchen-appliances.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                <a href="catalog.html" data-category="kitchen-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
                   <img width="15px" height="15px" src="./assets/images/kitchen.svg" alt="Kitchen Appliances icon" />
-                  Kitchen Appliances
+                  <span data-i18n="Kitchen Appliances">Kitchen Appliances</span>
                   <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
                 </a>
-                <a href="category-small-appliances.html" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
+                <a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category" class="active:blue-900 flex items-center gap-2 py-2 px-3 hover:bg-neutral-100 active:bg-amber-400 cursor-pointer">
                   <img width="15px" height="15px" src="./assets/images/food.svg" alt="Small Appliances icon" />
-                  Small Appliances
+                  <span data-i18n="Small Appliances">Small Appliances</span>
                   <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 w-4"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg></span>
                 </a>
               </div>
@@ -249,39 +253,39 @@
             <div class="flex w-full justify-between">
               <div class="flex gap-6">
                 <div class="mx-5">
-                  <p class="font-medium text-gray-500">WASHING MACHINES</p>
+                  <p class="font-medium text-gray-500 uppercase" data-i18n="Washing Machines">WASHING MACHINES</p>
                   <ul class="text-sm leading-8">
-                    <li><a href="category-washing-machines.html">Samsung WD Pro</a></li>
-                    <li><a href="category-washing-machines.html">LG TurboWash 360</a></li>
-                    <li><a href="category-washing-machines.html">Whirlpool HE Washer</a></li>
-                    <li><a href="category-washing-machines.html">Bosch Series 8</a></li>
+                    <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Samsung WD Pro</a></li>
+                    <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">LG TurboWash 360</a></li>
+                    <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Whirlpool HE Washer</a></li>
+                    <li><a href="catalog.html" data-category="washing-machines" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Bosch Series 8</a></li>
                   </ul>
                 </div>
                 <div class="mx-5">
-                  <p class="font-medium text-gray-500">REFRIGERATORS</p>
+                  <p class="font-medium text-gray-500 uppercase" data-i18n="Refrigerators">REFRIGERATORS</p>
                   <ul class="text-sm leading-8">
-                    <li><a href="category-refrigerators.html">Samsung French Door</a></li>
-                    <li><a href="category-refrigerators.html">LG InstaView</a></li>
-                    <li><a href="category-refrigerators.html">Whirlpool 4-Door</a></li>
-                    <li><a href="category-refrigerators.html">Bosch Side-by-Side</a></li>
+                    <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Samsung French Door</a></li>
+                    <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">LG InstaView</a></li>
+                    <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Whirlpool 4-Door</a></li>
+                    <li><a href="catalog.html" data-category="refrigerators" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Bosch Side-by-Side</a></li>
                   </ul>
                 </div>
                 <div class="mx-5">
-                  <p class="font-medium text-gray-500">AIR CONDITIONERS</p>
+                  <p class="font-medium text-gray-500 uppercase" data-i18n="Air Conditioners">AIR CONDITIONERS</p>
                   <ul class="text-sm leading-8">
-                    <li><a href="category-air-conditioners.html">Daikin Inverter 12k</a></li>
-                    <li><a href="category-air-conditioners.html">Mitsubishi Mini Split</a></li>
-                    <li><a href="category-air-conditioners.html">LG Dual Cool</a></li>
-                    <li><a href="category-air-conditioners.html">Carrier Xpower</a></li>
+                    <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Daikin Inverter 12k</a></li>
+                    <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Mitsubishi Mini Split</a></li>
+                    <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">LG Dual Cool</a></li>
+                    <li><a href="catalog.html" data-category="air-conditioners" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Carrier Xpower</a></li>
                   </ul>
                 </div>
                 <div class="mx-5">
-                  <p class="font-medium text-gray-500">FEATURED</p>
+                  <p class="font-medium text-gray-500 uppercase" data-i18n="Featured">FEATURED</p>
                   <ul class="text-sm leading-8">
-                    <li><a href="category-small-appliances.html">Dyson Hot+Cool</a></li>
-                    <li><a href="category-small-appliances.html">iRobot Roomba j7+</a></li>
-                    <li><a href="category-small-appliances.html">Dyson V15 Detect</a></li>
-                    <li><a href="category-small-appliances.html">Philips Air Fryer</a></li>
+                    <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Dyson Hot+Cool</a></li>
+                    <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">iRobot Roomba j7+</a></li>
+                    <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Dyson V15 Detect</a></li>
+                    <li><a href="catalog.html" data-category="small-appliances" onclick="event.preventDefault();location.href=this.href+'?category='+this.dataset.category">Philips Air Fryer</a></li>
                   </ul>
                 </div>
               </div>
@@ -670,34 +674,7 @@
       </footer>
       <!-- /Desktop Footer  -->
 
-      <!-- Payment and copyright  -->
 
-      <section class="h-11 bg-amber-400">
-        <div
-          class="mx-auto flex max-w-[1200px] items-center justify-between px-4 pt-2"
-        >
-          <p>&copy; Bogdan Bulakh, 2023</p>
-          <div class="flex items-center space-x-3">
-            <img
-              class="h-8"
-              src="https://cdn-icons-png.flaticon.com/512/5968/5968299.png"
-              alt="Visa icon"
-            />
-            <img
-              class="h-8"
-              src="https://cdn-icons-png.flaticon.com/512/349/349228.png"
-              alt="AE icon"
-            />
-            <img
-              class="h-8"
-              src="https://cdn-icons-png.flaticon.com/512/5968/5968144.png"
-              alt="Apple pay icon"
-            />
-          </div>
-        </div>
-      </section>
-    </main>
-    <!-- /Payment and copyright  -->
     <script src="./assets/js/lang.js"></script>
     <script type="module" src="assets/js/script.js"></script>
   </body>
